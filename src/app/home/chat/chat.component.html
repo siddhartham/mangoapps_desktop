@@ -1,0 +1,23 @@
+<md-card class="chat-card">
+  <md-card-header>
+    <img md-card-avatar src="{{chat.user.photo}}">
+    <md-card-title>{{chat.user.name}}</md-card-title>
+    <md-card-subtitle md-line>{{chat.user.presence_string || '~'}}</md-card-subtitle>
+  </md-card-header>
+
+
+  <md-card-content  #scrollMe>
+    <div *ngFor="let chat of chat.user_chats" [ngClass]="(chat.from_user.id == me.id) ? 'chat my_chat' : 'chat user_chat'">
+      <small>{{chat.from_user.name}}</small>
+      <p>{{chat.chat_body}}</p>
+    </div>
+  </md-card-content>
+
+  <md-card-actions>
+    <form class="chat-form" flex layout="row" layout-align="left">
+      <md-input-container>
+        <input mdInput placeholder="Chat" class="chat-full-width" required="true" [(ngModel)]="chat_body" name="chat_body" (keyup.enter)="send_chat()">
+      </md-input-container>
+    </form>
+  </md-card-actions>
+</md-card>

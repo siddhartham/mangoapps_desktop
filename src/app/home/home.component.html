@@ -1,0 +1,84 @@
+<md-grid-list cols="48" rowHeight="734px" gutterSize="0">
+  <md-grid-tile [colspan]="3" class="lhs1">
+    <md-list>
+      <md-list-item>
+        <button md-button (click)="load_all()" [disabled]="call_in_progress">
+          <md-icon md-list-icon>autorenew</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button (click)="logout()" [disabled]="call_in_progress">
+          <md-icon md-list-icon>power_settings_new</md-icon>
+        </button>
+      </md-list-item>
+    </md-list>
+  </md-grid-tile>
+  <md-grid-tile [colspan]="12" class="lhs2">
+    <md-list>
+
+      <md-list-item>
+          <img src="{{current_user.photo}}" md-list-avatar />
+          <h2 md-header md-line>{{current_user.name}}</h2>
+      </md-list-item>
+
+      <md-divider></md-divider>
+      <div class="feeds_tabs">
+      <md-list-item *ngFor="let f of feed_tabs"
+                    [ngClass]="(feed_tab==f.id)?'clickable_list_item selected':'clickable_list_item'"
+                    (click)="select_feeds_tab(f.id)">
+          <md-icon md-list-icon>{{f.icon}}</md-icon>
+          <h2 md-header md-line>{{f.name}}</h2>
+      </md-list-item>
+      </div>
+
+      <md-divider></md-divider>
+      <div class="chat_search">
+        <md-list-item>
+          <md-input-container class="colleagues_search">
+            <input mdInput placeholder="Chat" [(ngModel)]="chat_query" name="chat_query" (keyup.enter)="load_colleagues()">
+          </md-input-container>
+        </md-list-item>
+      </div>
+
+      <md-divider></md-divider>
+      <div class="chat_tabs">
+      <div *ngFor="let uc of chats">
+        <md-list-item *ngIf="should_show_chat(uc)"
+                      [ngClass]="(chat_user?.id==uc.user.id)?'colleagues_item clickable_list_item selected':'colleagues_item clickable_list_item'"
+                      (click)="select_chat(uc)">
+          <img src="{{uc.user.photo}}" md-list-avatar />
+          <h2 md-header md-line>{{uc.user.name}}</h2>
+          <p md-line>{{uc.user.presence_string}}</p>
+          <md-icon *ngIf="uc.show" (click)="unpin_chat(uc)">highlight_off</md-icon>
+        </md-list-item>
+      </div>
+      </div>
+
+    </md-list>
+  </md-grid-tile>
+  <md-grid-tile [colspan]="33" class="main_content_area">
+    <div *ngIf="newMsgNotice" class="new_msg_notice" (click)="select_feeds_tab('A')">New message</div>
+    <div *ngIf="block_ui" class="block_ui">
+      <div class="blur"></div>
+    </div>
+    <div flex layout="row" layout-align="left" class="main_content_dev" *ngIf="(selectedtab=='feeds' || selectedtab=='dms')">
+      <app-feed-item (markAsRead)="handleMarkAsRead($event)"
+                      (pinFeed)="handlePinFeed($event)"
+                      (unpinFeed)="handleUnpinFeed($event)"
+                      [selectedtab]="selectedtab"
+                      [selectedFeedTab]="feed_tab"
+                      [feed]="feed"
+                      [personalSetting]="personalSetting"
+                      *ngFor="let feed of feeds"></app-feed-item>
+      <button *ngIf="feeds?.length > 0"
+              (click)="load_more_feeds()"
+              md-raised-button style="width:100%;">{{call_in_progress ? 'Please wait...' : 'More'}}</button>
+    </div>
+    <div flex layout="row" layout-align="left" class="main_content_dev" *ngIf="selectedtab=='chat'">
+      <app-chat *ngIf="current_chat_index!=null"
+                [me]="chat_me"
+                [chat]="chats[current_chat_index]"
+                (chatAdd)="handleChatAdd($event)"></app-chat>
+    </div>
+  </md-grid-tile>
+</md-grid-list>

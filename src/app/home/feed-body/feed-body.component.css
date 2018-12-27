@@ -1,0 +1,15 @@
+md-card.feed-body-card.mat-card {
+  box-shadow: none;
+}
+
+.feed-body-table,
+.feed-body-card{
+  border: 1px solid whitesmoke;
+}
+
+.feed-body-table tr:nth-child(even) {
+    background-color: whitesmoke;
+}
+.feed-body-table td{
+    word-break: break-all;
+}

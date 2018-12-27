@@ -1,0 +1,21 @@
+{
+  "name": "MangoApps",
+  "version": "2.0.1",
+  "description": "A Cross Platform MangoApps Client",
+  "license": "MIT",
+  "keywords": [
+    "MangoApps"
+  ],
+  "author": {
+    "name": "Siddhartha Mukherjee",
+    "email": "mukherjee.siddhartha@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/siddhartham/mangoapps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/siddhartham/mangoapps/issues"
+  },
+  "main": "main.js"
+}

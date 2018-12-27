@@ -1,0 +1,21 @@
+md-card.comment-card.mat-card{
+  box-shadow: none;
+  border-left: 1px solid lightgrey;
+  padding: 10px;
+}
+md-card.comment-card.mat-card img{
+  width: 24px;
+  height: 24px;
+}
+
+md-card.child-comment-card.mat-card{
+  box-shadow: none;
+  margin-top: 10px;
+  margin-left: 44px;
+  border-left: 1px solid lightgrey;
+  padding: 10px;
+}
+md-card.child-comment-card.mat-card img{
+  width: 20px;
+  height: 20px;
+}

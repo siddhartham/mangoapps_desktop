@@ -1,0 +1,5 @@
+<form class="reply-form" flex layout="row" layout-align="left">
+  <md-input-container>
+    <input mdInput placeholder="Reply" class="reply-full-width" required="true" [(ngModel)]="comment_body" name="comment_body" (keyup.enter)="reply()">
+  </md-input-container>
+</form>

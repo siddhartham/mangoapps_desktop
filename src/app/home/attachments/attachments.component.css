@@ -1,0 +1,27 @@
+.attachment_card{
+  border: 1px solid lightgrey;
+  background-color: whitesmoke;
+  width: 99%;
+  height: 99%;
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+}
+.attachment_card h4{
+  position: absolute;
+  bottom: 0px;
+  color: lightgrey;
+  align-self: auto;
+  left: 20px;
+  color: black;
+  font-weight: normal;
+  font-size: 12px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  display:inline-block;
+  width: 90%;
+}
+.attachment_card img{
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+<md-card *ngIf="layout=='SB'" (click)="open_mlink(images[0].mlink)">
+  <img md-card-image src="{{images[0].url}}">
+  <md-card-subtitle>{{images[0].name}}</md-card-subtitle>
+</md-card>
+
+<md-grid-list cols="3" *ngIf="layout=='PS' || layout=='LS' || layout=='LIST'">
+  <md-grid-tile
+      *ngFor="let image of images"
+      [colspan]="image.cols"
+      [rowspan]="image.rows"
+      (click)="open_mlink(image.mlink)">
+
+      <div class="attachment_card">
+        <img src="{{image.url}}">
+        <h4>
+          {{image.name}}
+        </h4>
+      </div>
+
+  </md-grid-tile>
+</md-grid-list>

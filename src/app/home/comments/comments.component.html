@@ -1,0 +1,24 @@
+<md-card class="comment-card" *ngFor="let comment of comments">
+  <md-card-header>
+    <img md-card-avatar src="{{comment.user.photo}}">
+    <md-card-title>{{comment.user.name}}</md-card-title>
+    <md-card-subtitle>
+        <p [innerHTML]="comment.body|mention:comment.mention_tags" style="white-space:pre-wrap;"></p>
+    </md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <app-attachments [selectedtab]="selectedtab" [attachments]="comment.attachments" [attachment_references]="comment.attachment_references"></app-attachments>
+    <md-card class="child-comment-card" *ngFor="let child of comment.children">
+      <md-card-header>
+        <img md-card-avatar src="{{child.user.photo}}">
+        <md-card-title>{{child.user.name}}</md-card-title>
+        <md-card-subtitle>
+            <p [innerHTML]="child.body|mention:child.mention_tags" style="white-space:pre-wrap;"></p>
+        </md-card-subtitle>
+      </md-card-header>
+    </md-card>
+  </md-card-content>
+  <md-card-actions>
+    <!-- <app-reply></app-reply> -->
+  </md-card-actions>
+</md-card>

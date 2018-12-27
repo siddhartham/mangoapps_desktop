@@ -1,0 +1,11 @@
+.reply-form {
+  width: 100%;
+  margin-left: 5px;
+}
+.reply-form md-input-container.mat-input-container{
+  width: 100%;
+}
+
+.reply-full-width {
+  width: 100%;
+}

@@ -1,0 +1,64 @@
+.lhs1{
+  background-color: #190d0b;
+  color: lightgray;
+}
+.lhs1 md-icon{
+  color: lightgray;
+}
+.lhs1 button.mat-button {
+  min-width: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
+.lhs2{
+  background-color: #4f343a;
+  color: lightgray;
+}
+.lhs2 *{
+  color: lightgray;
+  font-weight: lighter;
+}
+.lhs2 .mat-list {
+  width: 100%;
+}
+
+.main_content_area .main_content_dev{
+  width: 100%;
+  padding: 4px;
+  background: lightgrey;
+}
+
+.clickable_list_item{
+  cursor: pointer;
+  height: 25px;
+  font-size: 14px;
+}
+.clickable_list_item *{
+  color: darkgray;
+}
+.clickable_list_item.selected *{
+  color: white;
+}
+
+.colleagues_search{
+  width: 100%;
+}
+.new_msg_notice{
+  cursor: pointer;
+  background: rgb(0, 132, 255);
+  color: white;
+  width: 150px;
+  height: 20px;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  z-index: 1;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}

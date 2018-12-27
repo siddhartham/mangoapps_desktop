@@ -1,0 +1,43 @@
+.chat-form {
+  width: 100%;
+  margin-left: 5px;
+}
+.chat-form md-input-container.mat-input-container{
+  width: 100%;
+}
+
+.chat-full-width {
+  width: 100%;
+}
+
+.chat-card {
+  background: whitesmoke;
+}
+.chat-card md-card-content.mat-card-content{
+  background: white;
+  height: 546px;
+  overflow: auto;
+  overflow-x: hidden;
+  border: 1px solid #eee;
+}
+
+.chat{
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.chat small{
+  font-weight: 500;
+  color: brown;
+}
+.chat p{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.chat.user_chat{
+  background: aliceblue;
+}
+.chat.my_chat{
+  background: antiquewhite;
+}

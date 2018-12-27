@@ -1,0 +1,38 @@
+md-card.feed-card{
+  margin-top: 4px;
+}
+md-card.feed-card md-card-actions.mat-card-actions{
+  margin: 0px;
+}
+
+button.mat-button,
+a.mat-button {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 400;
+    background: whitesmoke;
+}
+
+.unread_div{
+  width: 10px;
+  height: 10px;
+  background: rgb(0, 132, 255);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  position: absolute;
+  right: 25px;
+  cursor: pointer;
+}
+
+.pin_button{
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: lightgray;
+}
+
+.red{
+  color: red
+}

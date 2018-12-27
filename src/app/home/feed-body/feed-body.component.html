@@ -1,0 +1,15 @@
+<p class="feed-body-p" [innerHTML]="body|mention:feed.mention_tags" style="white-space:pre-wrap;" *ngIf="body_type=='N'"></p>
+
+<table class="feed-body-table" *ngIf="body_type=='I'">
+  <tr *ngFor="let er of external_properties">
+    <td width="20%">{{er[0]|titlecase}}</td>
+    <td><div class="block-with-text" style="white-space:pre-wrap;">{{er[1]}}</div></td>
+  </tr>
+</table>
+
+<md-card class="feed-body-card" *ngIf="body_type=='P'">
+  <img md-card-image src="{{feed.feed_property.tile_external_video_img}}" *ngIf="feed.feed_property.tile_external_video_img">
+  <md-card-content>
+    <p [innerHTML]="body|keepHtml" style="white-space:pre-wrap;"></p>
+  </md-card-content>
+</md-card>

@@ -1,0 +1,165 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500";
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.app {
+  /* Disable text selection, or your app will feel like a web page */
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+
+  /* Cover the whole window */
+  height: 100%;
+
+  /* Make sure this matches the native window background color that you pass to
+   * electron.BrowserWindow({...}), otherwise your app startup will look janky. */
+  background: rgb(40, 40, 40);
+
+  /* Smoother startup */
+  animation: fadein 0.5s;
+}
+
+/*Disable browser margin*/
+body{
+  margin: 0px;
+  background-color: #190d0b;
+}
+
+md-chip{
+  background: #4f343a;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+}
+
+.block-with-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
+.block_ui{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  /* Enable GPU Rendering */
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.blur {
+  /* All the background image supports */
+  transform: translate(0px, 0px, 0px);
+  background-image: -webkit-linear-gradient(bottom left, rgba(43, 40, 50, 0.5) 0%, rgba(83, 86, 99, 0.5) 45%, rgba(69, 77, 91, 0.4) 60%);
+  background-image: -moz-linear-gradient(bottom left, rgba(43, 40, 50, 0.5) 0%, rgba(83, 86, 99, 0.5) 45%, rgba(69, 77, 91, 0.4) 60%);
+  background-image: -o-linear-gradient(bottom left, rgba(43, 40, 50, 0.5) 0%, rgba(83, 86, 99, 0.5) 45%, rgba(69, 77, 91, 0.4) 60%);
+  background-image: linear-gradient(to top right, rgba(43, 40, 50, 0.5) 0%, rgba(83, 86, 99, 0.5) 45%, rgba(69, 77, 91, 0.4) 60%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  /* blur filters */
+  -webkit-filter: blur(20px);
+  -o-filter: blur(20px);
+  filter: blur(20px);
+
+  /* positioning and removing edges */
+  top: -70px;
+  right: -70px;
+  left: -70px;
+  padding: 70px;
+}
+
+.blur:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1001;
+
+  /* Setting the gradient. Adds depth, and glass like effect. */
+  background-image: -webkit-linear-gradient(289deg, rgba(43,40,50,0.5) 0%, rgba(43,40,50,0.4) 46%, rgba(0,0,0,0.05) 50%);
+  background-image: -moz-linear-gradient(289deg, rgba(43,40,50,0.5) 0%, rgba(43,40,50,0.4) 46%, rgba(0,0,0,0.05) 50%);
+  background-image: -o-linear-gradient(289deg, rgba(43,40,50,0.5) 0%, rgba(43,40,50,0.4) 46%, rgba(0,0,0,0.05) 50%);
+  background-image: linear-gradient(-19deg, rgba(43,40,50,0.5) 0%, rgba(43,40,50,0.4) 46%, rgba(0,0,0,0.05) 50%);
+
+  /* Blur to add depth. High to create smooth transition */
+  -webkit-filter: blur(70px);
+  -o-filter: blur(70px);
+  filter: blur(70px);
+}
+
+.lhs1 figure.mat-figure,
+.lhs2 figure.mat-figure,
+.main_content_area figure.mat-figure {
+    align-items: flex-start !important;
+    overflow: auto;
+}
+
+.lhs2 img{
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.lhs2 .colleagues_item .mat-list-text {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  font-size: 14px;
+}
+
+.lhs2 .colleagues_item .mat-list-item-content{
+  height: 35px !important;
+}
+
+.lhs2 .colleagues_item p.mat-line{
+  font-size: 10px !important;
+}
+
+.lhs2 .feeds_tabs {
+  height: 175px;
+}
+.lhs2 .feeds_tabs .mat-list-text {
+  padding: 0px !important;
+}
+.lhs2 .feeds_tabs .mat-list-icon.mat-icon.material-icons {
+    font-size: 14px;
+    margin-top: 10px;
+}
+.lhs2 .feeds_tabs .mat-list-item-content {
+    height: 30px !important;
+}
+
+.lhs2 .chat_search{
+  height: 45px;
+  padding-top: 14px;
+  padding-bottom: 0px;
+}
+.lhs2 .chat_search .mat-input-underline{
+  display: none !important;
+}
+.lhs2 .chat_search .mat-input-placeholder{
+  color: darkgray;
+}
+
+
+.lhs2 .chat_tabs{
+  padding-top: 10px;
+}
+.lhs2 .chat_tabs .mat-list-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

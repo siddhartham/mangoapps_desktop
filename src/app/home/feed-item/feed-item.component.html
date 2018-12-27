@@ -1,0 +1,52 @@
+<md-card class="feed-card" *ngIf="feed && (is_expanded || !has_comments)">
+  <md-card-header>
+    <img md-card-avatar src="{{from_user.photo}}">
+    <md-card-title>{{main_head}}</md-card-title>
+    <md-card-subtitle md-line>{{sub_head}}</md-card-subtitle>
+    <div class="unread_div" *ngIf="feed.unread" (click)="mark_as_read()"></div>
+  </md-card-header>
+
+  <md-card-content>
+    <app-feed-body [feed]="feed"></app-feed-body>
+    <app-attachments [selectedtab]="selectedtab" [attachments]="feed.attachments" [attachment_references]="feed.attachment_references"></app-attachments>
+  </md-card-content>
+
+  <md-card-actions>
+    <app-comments [selectedtab]="selectedtab" [comments]="feed.comments"></app-comments>
+    <app-reply [feed]="feed" (commentAdd)="handleCommentAdd($event)"></app-reply>
+    <a md-button (click)="toggle_item()" *ngIf="has_comments">Collapse</a>
+    <a md-button (click)="open_mlink()">Open In Web</a>
+    <a md-button (click)="pin_toggle_feed()" [class]="(feed.watched) ? 'pin_button red' : 'pin_button'">
+      <md-icon md-button-icon>{{pin_icon}}</md-icon>
+    </a>
+  </md-card-actions>
+</md-card>
+
+
+<md-card class="feed-card" *ngIf="feed && (!is_expanded && has_comments)">
+  <md-card-header>
+    <img md-card-avatar src="{{from_user.photo}}">
+    <md-card-title>{{main_head}}</md-card-title>
+    <md-card-subtitle md-line>{{sub_head}}</md-card-subtitle>
+    <div class="unread_div" *ngIf="feed.unread" (click)="mark_as_read()"></div>
+  </md-card-header>
+
+  <md-card-content *ngIf="has_comments">
+    <p [innerHTML]="body|mention:mention_tags" style="white-space:pre-wrap;"></p>
+    <app-attachments [attachments]="this.last_comment.attachments" [attachment_references]="this.last_comment.attachment_references"></app-attachments>
+  </md-card-content>
+
+  <md-card-content *ngIf="!has_comments">
+    <app-feed-body [feed]="feed"></app-feed-body>
+    <app-attachments [attachments]="feed.attachments" [attachment_references]="feed.attachment_references"></app-attachments>
+  </md-card-content>
+
+  <md-card-actions>
+    <app-reply [feed]="feed" (commentAdd)="handleCommentAdd($event)"></app-reply>
+    <a md-button (click)="toggle_item()" *ngIf="feed.comments.length > 0">Expand</a>
+    <a md-button (click)="open_mlink()">Open In Web</a>
+    <div (click)="pin_toggle_feed()" [class]="(feed.watched) ? 'pin_button red' : 'pin_button'">
+      <md-icon md-button-icon>{{pin_icon}}</md-icon>
+    </div>
+  </md-card-actions>
+</md-card>
